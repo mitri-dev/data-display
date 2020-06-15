@@ -1,0 +1,217 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: grid;
+  margin: 2rem;
+}
+
+.field-container {
+  margin: auto;
+  display: grid;
+  max-width: 750px;
+  background-color: #f4f4f4;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.field-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #eee;
+  padding: 2rem;
+}
+
+.field-jobs {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(33.33%, 33.33%));
+  grid-template-columns: repeat(auto-fit, minmax(20%, 20%));
+  background-color: #fff;
+}
+
+
+.field-jobs li {
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1rem;
+  display: grid;
+  align-content: center;
+  user-select: none;
+  border: 0.1rem solid transparent;
+}
+
+.field-jobs li:nth-child(even) {
+  background-color: #eee;
+}
+.field-jobs li:nth-child(odd) {
+  background-color: #ddd;
+}
+
+.field-jobs li.selected {
+  background-color: #00ff00a0!important;
+  border-color: #00ff00;
+}
+
+.controlers {
+  position: fixed;
+  background-color: #333;
+  height: 5rem;
+  width: 15rem;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 0.5rem;
+  user-select: none;
+  transition: ease-in 0.2s;
+}
+
+.controlers.hide {
+  transform: translate(-50%, 120%);
+}
+
+.finish {
+  height: 1.5rem;
+  width: 3rem;
+  position: absolute;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: #00ff00;
+  border: 0.1rem solid #333;
+  color: #eee;
+  left: 50%;
+  bottom: 0rem;
+  transform: translateX(-50%) translateY(20%);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: ease-in top 0.2s;
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #eee;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 0 1rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.arrows:first-of-type svg {
+  transform: rotate(180deg);
+}
+.arrows svg {
+  fill: #333;
+  height: 50%;
+  height: 1rem;
+  width: 1rem;
+  margin: auto;
+}
+.arrows:last-of-type {
+  right: 0;
+}
+
+.page-count {
+  background-color: transparent;
+  position: absolute;
+  padding: 0.25rem;
+  width: 100%;
+  text-align: center;
+  color: #eee;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.controlers-hide {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: #444;
+  left: 50%;
+  top: -0.2rem;
+  transform: translateX(-50%);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: ease-in top 0.2s;
+}
+.controlers-hide svg {
+  fill: #eee;
+  height: 50%;
+  height: 1rem;
+  width: 1rem;
+  margin: auto;
+  transform: rotate(90deg)
+}
+.controlers.hide .controlers-hide svg {
+  transform: rotate(-90deg);
+  margin-top: 0.2rem;
+}
+.controlers.hide .controlers-hide {
+  top: -1.2rem;
+}
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  background-color: #00000080;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+}
+
+.content {
+  background-color: #eee;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90vw;
+  max-width: 750px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+.content h4 {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+  .content {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 100%));
+  }
+  
+  .field-jobs {
+    grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+  }
+
+}
